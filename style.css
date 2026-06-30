@@ -251,21 +251,11 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(38,28,19,.08); }
 /* ── STATEMENT BAND ────────────────────────────────── */
 .statement-band {
   background: var(--espresso);
-  padding: 80px 0;
+  padding: 112px 0;
   text-align: center;
 }
-.statement-text {
-  font-family: var(--ff-serif);
-  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.55;
-  letter-spacing: -.01em;
-  color: rgba(248,247,242,.78);
-  max-width: 620px;
-  margin: 0 auto;
-}
-.statement-text em { color: var(--gold); font-style: italic; }
+.statement-band .heading-lg { color: var(--ivory); }
+.statement-band em { color: var(--gold); }
 
 /* ── GOLD RULE ─────────────────────────────────────── */
 .gold-rule { display: inline-block; width: 40px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: 14px; }
