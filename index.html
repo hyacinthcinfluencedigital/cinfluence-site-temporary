@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cinfluence — Strategic Content Studio for Service Businesses &amp; Personal Brands</title>
+<meta name="description" content="Cinfluence is a founder-led strategic content studio helping service businesses and personal brands build authority, attract qualified leads, and grow through intentional social media and content marketing."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── HERO ───────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-h);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 48px;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 44px; }
+.hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.hero-h1 { margin-bottom: 36px; }
+.hero-sub { max-width: 480px; margin-bottom: 52px; font-size: 1rem; line-height: 1.9; color: var(--taupe); }
+.hero-image { position: relative; overflow: hidden; background: var(--stone); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.hero-image .img-ph { min-height: 100%; }
+
+/* Work preview */
+.wp-card { position: relative; }
+.wp-card-img { aspect-ratio: 4/5; overflow: hidden; background: var(--stone); position: relative; }
+.wp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.wp-card:hover .wp-card-img img { transform: scale(1.04); }
+.wp-card-img .img-ph { aspect-ratio: 4/5; min-height: auto; }
+.wp-card-info { padding: 28px 0 0; }
+.wp-card-info .label { color: var(--gold); display: block; margin-bottom: 10px; }
+.wp-card-info h3 { font-family: var(--ff-serif); font-size: 1.15rem; margin-bottom: 10px; }
+.wp-card-info span { font-size: .78rem; color: var(--taupe); font-weight: 500; line-height: 1.6; display: block; }
+
+/* Process */
+.process-row { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; }
+.pr-step { padding: 56px 28px; border-right: 1px solid rgba(38,28,19,.08); position: relative; }
+.pr-step:last-child { border-right: none; }
+.pr-num { font-family: var(--ff-serif); font-size: 2.8rem; font-weight: 400; color: var(--stone); line-height: 1; margin-bottom: 20px; display: block; }
+.pr-title { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--espresso); margin-bottom: 14px; }
+.pr-desc { font-size: .78rem; color: var(--taupe); line-height: 1.7; }
+.pr-dot { position: absolute; top: 48px; right: -1px; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; transform: translateX(50%); }
+.pr-step:last-child .pr-dot { display: none; }
+
+/* FAQ */
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--stone); }
+.faq-q { width: 100%; background: none; border: none; text-align: left; padding: 30px 0; display: flex; justify-content: space-between; align-items: center; font-size: .9rem; font-weight: 600; color: var(--espresso); gap: 20px; font-family: var(--ff-sans); }
+.faq-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); transition: transform .3s var(--ease); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .3s; font-size: .88rem; color: var(--taupe); line-height: 1.8; }
+.faq-item.open .faq-a { max-height: 220px; padding-bottom: 26px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+/* Final CTA */
+.final-cta { background: var(--espresso); padding: 160px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(184,147,90,.07), transparent); pointer-events: none; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-image { height: 55vh; }
+  .hero-content { padding: 80px 40px 60px; }
+  .process-row { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 768px) {
+  .process-row { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <!-- Phase 2: work.html | pricing.html | journal.html -->
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">&#x2715;</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMenu()">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content fade-up">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="label" style="color:var(--taupe)">Strategic Content Studio</span>
+    </div>
+    <h1 class="heading-xl hero-h1">
+      Turn expertise<br>into authority.<br>Turn authority<br>into <em>clients.</em>
+    </h1>
+    <p class="hero-sub">Strategic content marketing and social media management for service businesses and personal brands ready to build trust, attract qualified leads, and grow with intention.</p>
+    <div class="btn-group">
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Discovery Call</a>
+      <a href="services.html" class="btn btn-outline">See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!-- ATTACH: hero-photo.jpg — warm editorial founder portrait — min 1200x1800px, 1:2 ratio -->
+    <div class="img-ph">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="ph-title">Hero Image</div>
+      <div class="ph-sub">hero-photo.jpg<br>Warm editorial founder portrait<br>Min 1200x1800px · 1:2 ratio</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT BAND -->
+<div class="statement-band fade-up">
+  <div class="container">
+    <p class="heading-lg">Authority is built, not bought.<br><em>Content is the system that compounds it.</em></p>
+  </div>
+</div>
+
+<!-- WHO WE HELP -->
+<section class="section section--white" id="who-we-help">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Who This Is For</span>
+      <h2 class="heading-lg">Built for businesses<br>that sell <em>trust.</em></h2>
+      <p class="body-lg" style="margin-top:24px;max-width:540px">If your client's decision to work with you depends on whether they trust you first — your content is doing the most important work your business has.</p>
+    </div>
+    <div class="who-grid fade-up">
+      <div class="who-card">
+        <svg class="who-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="who-card-label">Path One</span>
+        <h3>You are the brand.</h3>
+        <p>Your expertise, perspective, and reputation are the product. Content builds the authority that makes clients choose you before they ever speak to you.</p>
+        <div class="tag-pill-row">
+          <span class="tag-pill">Coaches</span>
+          <span class="tag-pill">Consultants</span>
+          <span class="tag-pill">Healthcare Professionals</span>
+          <span class="tag-pill">Financial Advisors</span>
+          <span class="tag-pill">Educators</span>
+          <span class="tag-pill">Lawyers</span>
+          <span class="tag-pill">Therapists</span>
+          <span class="tag-pill">Practitioners</span>
+        </div>
+      </div>
+      <div class="who-card who-card--dark">
+        <svg class="who-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="who-card-label">Path Two</span>
+        <h3>Your business is the brand.</h3>
+        <p>Your clients research your business before they call. Content positions you as the credible, premium option so they arrive already sold on working with you.</p>
+        <div class="tag-pill-row">
+          <span class="tag-pill tag-pill--light">Medical Aesthetics</span>
+          <span class="tag-pill tag-pill--light">Med Spas</span>
+          <span class="tag-pill tag-pill--light">Wellness Studios</span>
+          <span class="tag-pill tag-pill--light">Professional Firms</span>
+          <span class="tag-pill tag-pill--light">Clinics</span>
+          <span class="tag-pill tag-pill--light">Service Businesses</span>
+        </div>
+      </div>
+    </div>
+    <p class="who-card-note fade-up">Not sure which path fits your business? That is exactly what the discovery call is for.</p>
+  </div>
+</section>
+
+<!-- TWO SOLUTIONS -->
+<section class="section section--stone" id="solutions">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Two Paths. One Standard.</span>
+      <h2 class="heading-lg">Built for how your<br>business actually <em>works.</em></h2>
+    </div>
+    <div class="solutions-grid fade-up">
+      <div class="solution-card">
+        <span class="solution-card-num">01</span>
+        <div>
+          <span class="label">Personal Brand Growth</span>
+          <h3 style="margin-top:16px">Turn your expertise into a client-attracting personal brand.</h3>
+        </div>
+        <p>Your knowledge is the product. I build the content system that makes your authority visible, your credibility undeniable, and your calendar full without you spending your week on social media.</p>
+        <ul class="solution-includes" aria-label="What is included">
+          <li>Content strategy and positioning</li>
+          <li>Social media management</li>
+          <li>Short-form video production</li>
+        </ul>
+        <a href="services.html#personal-brand" class="solution-link">
+          Explore this path
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="solution-card">
+        <span class="solution-card-num">02</span>
+        <div>
+          <span class="label">Business Brand Growth</span>
+          <h3 style="margin-top:16px">Make your business the obvious choice in your market.</h3>
+        </div>
+        <p>Your clients research you before they call. I build the content that wins that research phase, positioning your business as the credible, premium option before any conversation begins.</p>
+        <ul class="solution-includes" aria-label="What is included">
+          <li>Content strategy and market positioning</li>
+          <li>Social media management</li>
+          <li>Short-form video production</li>
+        </ul>
+        <a href="services.html#business-brand" class="solution-link">
+          Explore this path
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--white" id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">How I Work</span>
+      <h2 class="heading-lg">A process built<br>for <em>clarity.</em></h2>
+    </div>
+    <div class="process-row">
+      <div class="pr-step fade-up">
+        <span class="pr-num">01</span>
+        <div class="pr-title">Discovery</div>
+        <p class="pr-desc">A deep-dive into your business, goals, audience, and competitive landscape before anything is built.</p>
+        <div class="pr-dot"></div>
+      </div>
+      <div class="pr-step fade-up">
+        <span class="pr-num">02</span>
+        <div class="pr-title">Strategy</div>
+        <p class="pr-desc">A custom content strategy with pillars, editorial direction, and a channel plan aligned to your business goals.</p>
+        <div class="pr-dot"></div>
+      </div>
+      <div class="pr-step fade-up">
+        <span class="pr-num">03</span>
+        <div class="pr-title">Creation</div>
+        <p class="pr-desc">On-brand content produced to a considered standard, scripted, designed, edited, and refined before it reaches you.</p>
+        <div class="pr-dot"></div>
+      </div>
+      <div class="pr-step fade-up">
+        <span class="pr-num">04</span>
+        <div class="pr-title">Approval</div>
+        <p class="pr-desc">You review everything before it goes live. No surprises, no assumptions, no content published without your sign-off.</p>
+        <div class="pr-dot"></div>
+      </div>
+      <div class="pr-step fade-up">
+        <span class="pr-num">05</span>
+        <div class="pr-title">Publish</div>
+        <p class="pr-desc">Scheduled publishing at the right time, on the right platform, built for your specific audience and their behaviour.</p>
+        <div class="pr-dot"></div>
+      </div>
+      <div class="pr-step fade-up">
+        <span class="pr-num">06</span>
+        <div class="pr-title">Optimise</div>
+        <p class="pr-desc">Monthly review of what is working, what is not, and where to focus next, keeping strategy ahead of execution.</p>
+      </div>
+    </div>
+    <div class="process-cta-row fade-up">
+      <a href="services.html" class="btn btn-primary">See Full Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="section section--stone" id="work">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Selected Work</span>
+      <h2 class="heading-lg">Brands I have <em>worked with</em></h2>
+    </div>
+    <div class="work-preview-2 fade-up">
+      <div class="wp-card">
+        <div class="wp-card-img">
+          <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe Aesthetic Center social media management and content strategy" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="wp-card-info">
+          <span class="label">Medical Aesthetics</span>
+          <h3>iLuxe Aesthetic Center</h3>
+          <span>Social media management, content creation, and brand storytelling for a premium aesthetic clinic.</span>
+        </div>
+      </div>
+      <div class="wp-card">
+        <div class="wp-card-img">
+          <img src="assets/work/hairsolution-graphicdesigns.jpg" alt="Hair Solution Nails and Spa beauty and wellness social media content" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="wp-card-info">
+          <span class="label">Beauty &amp; Wellness</span>
+          <h3>Hair Solution Nails &amp; Spa</h3>
+          <span>Social media management and short-form video production for a beauty and wellness studio.</span>
+        </div>
+      </div>
+    </div>
+    <p class="work-note fade-up">Full case studies and additional client work available upon request.</p>
+  </div>
+</section>
+
+<!-- WHY CINFLUENCE -->
+<section class="section section--white" id="why">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Why Cinfluence</span>
+      <h2 class="heading-lg">The strategy of an agency.<br>The aesthetic of a studio.<br>The attention of a <em>founder.</em></h2>
+    </div>
+    <div class="why-grid fade-up">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <h3>Founder-Led, Always</h3>
+        <p>When you work with Cinfluence, you work with Hyacinth, not an account manager relaying your brief to a team you will never meet. The strategy, creative direction, and judgment behind your brand are always hers. That level of direct attention is rare at this price point. At Cinfluence, it is the only way we work.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <h3>Strategy Before Everything</h3>
+        <p>No content is created without a strategic foundation. Every engagement starts with discovery and positioning, understanding your business, your audience, and your goals, before a single post is written. Strategy is not an add-on here. It is the starting point.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <h3>AI-Integrated Methodology</h3>
+        <p>AI is embedded across every engagement for audience research, trend intelligence, content ideation, workflow optimisation, and repurposing. It makes the work faster and smarter. Every strategic decision and every piece of client-facing content is reviewed and refined by a human with editorial judgment. You get both.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">04</div>
+        <h3>Built for Outcomes, Not Output</h3>
+        <p>The goal is never activity for its own sake. Every piece of content is connected to a business outcome: authority, inbound leads, qualified inquiries, clients who already trust you before they call. Output is how we measure effort. Outcomes are how we measure success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--stone" id="faq">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="label">Questions</span>
+      <h2 class="heading-lg">Frequently asked</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What types of businesses do you work with?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Cinfluence works with two types of clients: personal brands, including coaches, consultants, healthcare professionals, financial advisors, lawyers, educators, and practitioners, and business brands, including medical aesthetics clinics, med spas, wellness studios, professional service firms, and service-based businesses. What they share is that their clients make trust-based decisions. If trust is what you are selling, your content is doing the most important work in your business.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you create the content or just manage it?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Both. I handle strategy, scripting, content design, video production, scheduling, and community management so you can focus on running your business. Every piece of content goes through your approval before it goes live. Nothing is published without your sign-off.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What does the process look like?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Every engagement follows six stages: Discovery, Strategy, Creation, Approval, Publish, Optimise. No production begins without a completed strategy phase. This is intentional. The strategy is what makes the content worth producing. You will know exactly what is being built and why before anything is created.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the minimum commitment?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">All retainer engagements have a 3-month minimum. Building authority through content is a compounding process. Three months is the realistic starting point for meaningful, directional results. After the initial term, engagements continue month-to-month.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you offer custom engagements?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Yes. Every partnership is shaped around your specific goals, channels, and business model. Book a discovery call and I will build a proposal tailored to where your brand is and where you want to take it.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:60px" class="fade-up">
+      <a href="about.html#contact" class="btn btn-primary">Have More Questions?</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta">
+  <div class="final-cta-glow"></div>
+  <div class="container" style="position:relative">
+    <div class="fade-up">
+      <span class="label" style="color:var(--gold);display:block;margin-bottom:28px"><span class="gold-rule"></span>Let's Work Together</span>
+      <h2 class="heading-lg" style="color:var(--ivory);max-width:600px;margin:0 auto 24px">Ready to build a brand<br>they <em>remember?</em></h2>
+      <p style="color:rgba(248,247,242,.5);margin-bottom:52px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.85">Discovery calls are free, 30 minutes, and obligation-free. Let's talk about your brand, your goals, and whether Cinfluence is the right fit.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-ivory">Book a Discovery Call</a>
+        <a href="mailto:hello@cinfluencedigital.com" class="btn btn-outline-light">hello@cinfluencedigital.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-simple">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo">Cinfluence</span>
+        <p class="footer-tagline">A founder-led Strategic Content Studio helping service businesses and personal brands build authority, attract premium clients, and grow through intentional content.</p>
+        <p class="footer-tagline" style="margin-top:16px;font-style:italic;color:rgba(248,247,242,.35)">Influence with Intention.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#contact">Contact</a></li>
+          <li><a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cinfluence. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

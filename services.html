@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Cinfluence | Content Strategy &amp; Social Media Management</title>
+<meta name="description" content="Two solution paths — Personal Brand Growth and Business Brand Growth — built on the same strategic framework. Social media management, short-form video, and content strategy for service businesses and practitioners."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* Services page local styles */
+.path-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.path-hero-num {
+  font-family: var(--ff-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gold);
+  font-style: italic;
+}
+.path-tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 44px; }
+
+/* Shared includes list (light background) */
+.includes-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin: 0; }
+.includes-list li { font-size: .88rem; color: var(--espresso); padding-left: 22px; position: relative; line-height: 1.65; }
+.includes-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 8px; height: 1px; background: var(--gold); }
+
+/* Includes list dark */
+.includes-list--dark li { color: rgba(248,247,242,.8); }
+.includes-list--dark li::before { background: var(--gold); }
+
+/* Transform grid */
+.transform-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: var(--stone); margin-top: 60px; }
+.t-col { padding: 40px 32px; background: var(--ivory); }
+.t-col--dark { background: var(--espresso); }
+.t-label { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+.t-col p { font-size: .83rem; color: var(--taupe); line-height: 1.75; }
+.t-col--dark p { color: rgba(248,247,242,.65); }
+
+/* Investment box */
+.investment-box { margin-top: 40px; padding: 36px 44px; border: 1px solid var(--stone); background: var(--white); }
+.investment-box strong { display: block; font-family: var(--ff-serif); font-size: 1.2rem; font-weight: 400; color: var(--espresso); margin-bottom: 10px; }
+.investment-box p { font-size: .85rem; color: var(--taupe); line-height: 1.75; }
+
+/* AI note */
+.ai-note-box { margin-top: 28px; padding: 24px 32px; border-left: 2px solid var(--gold); background: rgba(184,147,90,.04); }
+.ai-note-box p { font-size: .8rem; color: var(--taupe); line-height: 1.8; font-style: italic; }
+
+/* Visual panel */
+.path-visual { background: var(--stone); overflow: hidden; }
+.path-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+/* FAQ strip */
+.services-faq { max-width: 680px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--stone); }
+.faq-q { width: 100%; background: none; border: none; text-align: left; padding: 28px 0; display: flex; justify-content: space-between; align-items: center; font-size: .88rem; font-weight: 600; color: var(--espresso); gap: 20px; font-family: var(--ff-sans); }
+.faq-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); transition: transform .3s var(--ease); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .3s; font-size: .86rem; color: var(--taupe); line-height: 1.8; }
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 24px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.final-cta { background: var(--espresso); padding: 140px 0; text-align: center; position: relative; overflow: hidden; }
+.final-cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(184,147,90,.07), transparent); pointer-events: none; }
+
+@media (max-width: 1024px) {
+  .path-layout { gap: 60px; }
+  .transform-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .path-layout { grid-template-columns: 1fr; }
+  .path-visual { height: 320px; }
+  .investment-box { padding: 28px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">&#x2715;</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMenu()">Book a Call</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">What I Offer</span>
+      <h1 class="heading-xl">Two paths.<br>One studio.<br>One <em>standard.</em></h1>
+      <p>Whether you are building a personal brand or growing a business, Cinfluence applies the same strategic rigour, adapted to how your brand actually works and what your audience actually needs.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PATH 01 — PERSONAL BRAND -->
+<section class="path-section section section--white" id="personal-brand">
+  <div class="container">
+    <div class="path-layout fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start">
+
+      <!-- Content -->
+      <div>
+        <div class="path-hero-label">
+          <span class="label" style="color:var(--gold)">Path 01</span>
+          <span class="path-hero-num">/ Personal Brand Growth</span>
+        </div>
+        <h2 class="heading-lg">Turn your expertise into a client-attracting<br><em>personal brand.</em></h2>
+        <p class="body-lg" style="margin:28px 0">Your knowledge is the product. I build the content system that makes your authority visible, your credibility undeniable, and your calendar full — without you spending your week on social media.</p>
+
+        <div class="path-tag-row">
+          <span class="tag-pill active">Coaches</span>
+          <span class="tag-pill active">Consultants</span>
+          <span class="tag-pill active">Healthcare Professionals</span>
+          <span class="tag-pill active">Financial Advisors</span>
+          <span class="tag-pill active">Educators</span>
+          <span class="tag-pill active">Lawyers &amp; Therapists</span>
+          <span class="tag-pill active">Practitioners</span>
+        </div>
+
+        <h3 class="heading-sm" style="margin-bottom:20px">What is included</h3>
+        <ul class="includes-list" aria-label="Personal Brand Growth — what is included">
+          <li>Brand positioning and content strategy</li>
+          <li>Platform selection and audience framework</li>
+          <li>Monthly content calendar planning</li>
+          <li>Social media management — Instagram, LinkedIn, or TikTok</li>
+          <li>Caption writing in your authentic brand voice</li>
+          <li>Short-form video — scripted, produced, and edited</li>
+          <li>Community management and DM engagement</li>
+          <li>Scheduling and publishing</li>
+          <li>Monthly performance and strategy review</li>
+        </ul>
+
+        <div class="ai-note-box">
+          <p>AI is embedded throughout this process for audience research, trend intelligence, content ideation, and workflow optimisation. Every creative decision and every piece of client-facing content is reviewed and refined by a human with editorial judgment. AI makes the work faster and smarter. It does not replace the strategy.</p>
+        </div>
+
+        <div class="investment-box">
+          <strong>Engagements start from $1,500/month.</strong>
+          <p>Every partnership is tailored after a discovery conversation. Book a call to discuss your brand, your goals, and what the right scope looks like for your business.</p>
+          <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:24px;display:inline-block">Book a Discovery Call</a>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div>
+        <div class="path-visual" style="aspect-ratio:3/4">
+          <!-- ATTACH: services-personal-brand.jpg — editorial image of professional or practitioner at work — min 900x1200px -->
+          <div class="img-ph" style="min-height:100%">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <div class="ph-title">Path 01 Image</div>
+            <div class="ph-sub">services-personal-brand.jpg<br>Editorial professional portrait<br>Min 900x1200px</div>
+          </div>
+        </div>
+
+        <div class="transform-grid" style="margin-top:32px">
+          <div class="t-col">
+            <span class="t-label">Before</span>
+            <p>Posting inconsistently. Expertise invisible online. Content that does not reflect your real standard.</p>
+          </div>
+          <div class="t-col t-col--dark">
+            <span class="t-label">How</span>
+            <p>Strategy first. Then positioning. Then a content system that builds authority week by week.</p>
+          </div>
+          <div class="t-col">
+            <span class="t-label">After</span>
+            <p>Known in your niche. Inbound inquiries. A content presence that runs without you.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER BAND -->
+<div class="divider-band">
+  <div class="container">
+    <p class="heading-lg">Authority is built, not bought.<br><em>Content is the system that compounds it.</em></p>
+  </div>
+</div>
+
+<!-- PATH 02 — BUSINESS BRAND -->
+<section class="path-section section section--white" id="business-brand">
+  <div class="container">
+    <div class="path-layout fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start">
+
+      <!-- Visual first on desktop for variety -->
+      <div style="order:1">
+        <div class="path-visual" style="aspect-ratio:3/4">
+          <!-- ATTACH: services-business-brand.jpg — editorial image of a premium clinic or professional studio — min 900x1200px -->
+          <div class="img-ph" style="min-height:100%">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <div class="ph-title">Path 02 Image</div>
+            <div class="ph-sub">services-business-brand.jpg<br>Premium clinic or professional space<br>Min 900x1200px</div>
+          </div>
+        </div>
+
+        <div class="transform-grid" style="margin-top:32px">
+          <div class="t-col">
+            <span class="t-label">Before</span>
+            <p>Inconsistent posting. Generic content. Blending in with every other business in your category.</p>
+          </div>
+          <div class="t-col t-col--dark">
+            <span class="t-label">How</span>
+            <p>Market analysis first. Then positioning. Then content that wins the research phase before contact.</p>
+          </div>
+          <div class="t-col">
+            <span class="t-label">After</span>
+            <p>Premium brand presence. Consistent authority. Clients who arrive already sold on working with you.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div style="order:2">
+        <div class="path-hero-label">
+          <span class="label" style="color:var(--gold)">Path 02</span>
+          <span class="path-hero-num">/ Business Brand Growth</span>
+        </div>
+        <h2 class="heading-lg">Make your business the obvious choice<br>in your <em>market.</em></h2>
+        <p class="body-lg" style="margin:28px 0">Your clients research you before they call. They compare your content, your reviews, and the way your brand feels — long before they make contact. I build the content presence that wins that research phase and positions your business as the clear, premium option.</p>
+
+        <div class="path-tag-row">
+          <span class="tag-pill active">Medical Aesthetics</span>
+          <span class="tag-pill active">Med Spas</span>
+          <span class="tag-pill active">Wellness Studios</span>
+          <span class="tag-pill active">Clinics</span>
+          <span class="tag-pill active">Professional Firms</span>
+          <span class="tag-pill active">Service Businesses</span>
+        </div>
+
+        <h3 class="heading-sm" style="margin-bottom:20px">What is included</h3>
+        <ul class="includes-list" aria-label="Business Brand Growth — what is included">
+          <li>Business and audience positioning</li>
+          <li>Competitor and market landscape analysis</li>
+          <li>Monthly content calendar planning</li>
+          <li>Social media management — Instagram, Facebook, LinkedIn, or TikTok</li>
+          <li>Caption writing in your brand voice</li>
+          <li>Short-form video — scripted, produced, and edited</li>
+          <li>Community management and engagement</li>
+          <li>Scheduling and publishing</li>
+          <li>Monthly performance and growth review</li>
+        </ul>
+
+        <div class="ai-note-box">
+          <p>AI is embedded throughout this process for market research, competitor intelligence, content ideation, and repurposing workflows. Every creative decision and every piece of client-facing content is reviewed and refined by a human with editorial judgment. AI makes the work faster and smarter. It does not replace the strategy.</p>
+        </div>
+
+        <div class="investment-box">
+          <strong>Engagements start from $1,500/month.</strong>
+          <p>Every partnership is tailored after a discovery conversation. Book a call to discuss your business, your market, and what the right scope looks like.</p>
+          <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:24px;display:inline-block">Book a Discovery Call</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES FAQ -->
+<section class="section section--stone" id="services-faq">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="label">Questions</span>
+      <h2 class="heading-lg">About the services</h2>
+    </div>
+    <div class="services-faq fade-up">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How do I know which path is right for me?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">The simplest distinction is this: if your name and reputation are the primary reason clients choose you, you are a personal brand. If the business entity itself is what clients are evaluating, you are a business brand. Many founders are both. The discovery call is designed to clarify which approach, or which combination, will serve your goals best.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can you manage more than one social platform?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Yes. Multi-platform management is available and scoped based on your goals, audience, and content volume. The right number of platforms is determined during strategy, not assumed at the start. More platforms is not always better. The goal is depth of presence on the right channels, not surface-level coverage of all of them.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you handle the video filming as well?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Short-form video services include scripting, direction, editing, and post-production. For clients who film their own content, I provide detailed briefs and shot guides so that the raw footage I receive is exactly what the content requires. For clients who need full production support, this is discussed during onboarding and scoped accordingly.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long before I see results?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Authority builds over time, not overnight. Most clients begin to see meaningful directional movement in audience quality and inbound engagement within 60 to 90 days. The 3-month minimum exists because that is when compounding begins to show. The strategy phase accelerates this by ensuring every piece of content is doing purposeful work from day one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-glow"></div>
+  <div class="container" style="position:relative">
+    <div class="fade-up">
+      <span class="label" style="color:var(--gold);display:block;margin-bottom:28px"><span class="gold-rule"></span>Ready to Start</span>
+      <h2 class="heading-lg" style="color:var(--ivory);max-width:560px;margin:0 auto 24px">Not sure where to begin?<br><em>The discovery call is.</em></h2>
+      <p style="color:rgba(248,247,242,.5);margin-bottom:52px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.85">Free, 30 minutes, and obligation-free. We will talk through your brand, your goals, and whether Cinfluence is the right fit for where you want to go.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener" class="btn btn-ivory">Book a Discovery Call</a>
+        <a href="about.html" class="btn btn-outline-light">Learn About the Studio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-simple">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo">Cinfluence</span>
+        <p class="footer-tagline">A founder-led Strategic Content Studio helping service businesses and personal brands build authority, attract premium clients, and grow through intentional content.</p>
+        <p class="footer-tagline" style="margin-top:16px;font-style:italic;color:rgba(248,247,242,.35)">Influence with Intention.</p>
+        <div class="footer-social-row">
+          <a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#contact">Contact</a></li>
+          <li><a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" rel="noopener">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cinfluence. All rights reserved.</span>
+      <div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
