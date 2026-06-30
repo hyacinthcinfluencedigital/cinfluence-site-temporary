@@ -40,32 +40,41 @@ a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--ff-sans); }
 
 /* ── TYPOGRAPHY ────────────────────────────────────── */
+/* ── TYPOGRAPHY HIERARCHY ──────────────────────────────
+   Tier 1  .heading-xl   Homepage hero only — largest type on the site
+   Tier 2  .heading-lg   Internal page heroes (Services, About) — shared size
+   Tier 3  .heading-md   All major section headings, site-wide — one shared size
+   —       .statement-text  Editorial statement bands — sits between tiers 2–3 in weight
+   Tier 4  .heading-sm   Sub-headings within sections (card titles, etc.)
+   Tier 5  .body-lg / .body-sm  Supporting copy
+──────────────────────────────────────────────────────── */
 .heading-xl {
   font-family: var(--ff-serif);
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(3.2rem, 6.4vw, 5.75rem);
   font-weight: 400;
-  line-height: 1.06;
+  line-height: 1.05;
   letter-spacing: -.03em;
 }
 .heading-lg {
   font-family: var(--ff-serif);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -.03em;
 }
 .heading-md {
   font-family: var(--ff-serif);
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -.02em;
+  line-height: 1.15;
+  letter-spacing: -.025em;
 }
 .heading-sm {
   font-family: var(--ff-serif);
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
   font-weight: 400;
   line-height: 1.3;
+
 }
 em { font-style: italic; }
 .label {
@@ -221,8 +230,8 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(38,28,19,.08); }
   pointer-events: none;
 }
 .page-hero .label { color: var(--gold); display: block; margin-bottom: 24px; }
-.page-hero .heading-xl { color: var(--ivory); }
-.page-hero p { color: rgba(248,247,242,.6); max-width: 520px; margin-top: 32px; font-size: 1rem; line-height: 1.9; }
+.page-hero .heading-lg { color: var(--ivory); }
+.page-hero p { color: rgba(248,247,242,.6); max-width: 540px; margin-top: 32px; font-size: 1rem; line-height: 1.9; }
 
 /* ── SECTION HEADER ────────────────────────────────── */
 .section-header { margin-bottom: 88px; }
@@ -251,11 +260,21 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(38,28,19,.08); }
 /* ── STATEMENT BAND ────────────────────────────────── */
 .statement-band {
   background: var(--espresso);
-  padding: 112px 0;
+  padding: 80px 0;
   text-align: center;
 }
-.statement-band .heading-lg { color: var(--ivory); }
-.statement-band em { color: var(--gold); }
+.statement-text {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  letter-spacing: -.01em;
+  color: rgba(248,247,242,.78);
+  max-width: 620px;
+  margin: 0 auto;
+}
+.statement-text em { color: var(--gold); font-style: italic; }
 
 /* ── GOLD RULE ─────────────────────────────────────── */
 .gold-rule { display: inline-block; width: 40px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: 14px; }
@@ -809,13 +828,9 @@ footer {
 /* ── DIVIDER BAND ───────────────────────────────────── */
 .divider-band {
   background: var(--espresso);
-  padding: 88px 0;
+  padding: 80px 0;
   text-align: center;
 }
-.divider-band .heading-lg {
-  color: var(--ivory);
-}
-.divider-band em { color: var(--gold); }
 
 /* ── ABOUT PAGE — founder & philosophy ─────────────── */
 .founder-layout {
@@ -839,6 +854,8 @@ footer {
 .founder-body {
   padding-top: 8px;
 }
+/* Long-form narrative copy (founder story) — intentionally sized between
+   body-lg and body-sm for sustained reading comfort, not a stray value */
 .founder-body p {
   font-size: .95rem;
   line-height: 1.95;
